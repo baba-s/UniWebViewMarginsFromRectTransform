@@ -45,13 +45,13 @@ namespace UniWebViewMarginsFromRectTransform
 		/// <summary>
 		/// 指定された RectTransform のサイズに合わせて WebView のマージンを返します
 		/// </summary>
-		public static Rect ToMargins( RectTransform rectTrans )
+		public static Margins ToMargins( RectTransform rectTransform )
 		{
-			var canvas	= rectTrans.GetComponentInParent<Canvas>();
+			var canvas	= rectTransform.GetComponentInParent<Canvas>();
 			var camera	= canvas.worldCamera;
 			var corners	= new Vector3[ 4 ];
 
-			rectTrans.GetWorldCorners( corners );
+			rectTransform.GetWorldCorners( corners );
 
 			var screenCorner1 = RectTransformUtility.WorldToScreenPoint( camera, corners[ 1 ] );
 			var screenCorner3 = RectTransformUtility.WorldToScreenPoint( camera, corners[ 3 ] );
@@ -66,12 +66,12 @@ namespace UniWebViewMarginsFromRectTransform
 			var margins = new Margins
 			(
 				left	: ( int )rect.xMin,
-				top		: ( int )rect.yMin,
+				top		: Screen.height - ( int )rect.yMax,
 				right	: Screen.width  - ( int )rect.xMax,
-				bottom	: Screen.height - ( int )rect.yMax
+				bottom	: ( int )rect.yMin
 			);
 
-			return rect;
+			return margins;
 		}
 	}
 }
