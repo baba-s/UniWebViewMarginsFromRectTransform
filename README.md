@@ -1,16 +1,6 @@
-# UniWebViewMarginsFromRectTransform
+# Uni Web View Margins From RectTransform
 
 [unity-webview](https://github.com/gree/unity-webview) のマージンを RectTranform から設定できる機能
-
-[![](https://img.shields.io/github/release/baba-s/uni-web-view-margins-from-rect-transform.svg?label=latest%20version)](https://github.com/baba-s/uni-web-view-margins-from-rect-transform/releases)
-[![](https://img.shields.io/github/release-date/baba-s/uni-web-view-margins-from-rect-transform.svg)](https://github.com/baba-s/uni-web-view-margins-from-rect-transform/releases)
-![](https://img.shields.io/badge/Unity-2018.3%2B-red.svg)
-![](https://img.shields.io/badge/.NET-4.x-orange.svg)
-[![](https://img.shields.io/github/license/baba-s/uni-web-view-margins-from-rect-transform.svg)](https://github.com/baba-s/uni-web-view-margins-from-rect-transform/blob/master/LICENSE)
-
-## バージョン
-
-- Unity 2018.3.11f1
 
 ## 使い方
 

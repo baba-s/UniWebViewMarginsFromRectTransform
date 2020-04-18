@@ -2,6 +2,7 @@
  * UniWebViewMarginsFromRectTransform は下記のサイト様のスクリプトを使用させていただいております
  * https://qiita.com/fukaken5050/items/b0d0183c3c61630d9473
  */
+
 using UnityEngine;
 
 namespace UniWebViewMarginsFromRectTransform
@@ -19,23 +20,23 @@ namespace UniWebViewMarginsFromRectTransform
 		/// </summary>
 		public struct Margins
 		{
-			public int left		;
-			public int top		;
-			public int right	;
-			public int bottom	;
+			public int Left   { get; }
+			public int Top    { get; }
+			public int Right  { get; }
+			public int Bottom { get; }
 
 			public Margins
 			(
-				int left	,
-				int top		,
-				int right	,
+				int left,
+				int top,
+				int right,
 				int bottom
 			)
 			{
-				this.left	= left		;
-				this.top	= top		;
-				this.right	= right		;
-				this.bottom	= bottom	;
+				Left   = left;
+				Top    = top;
+				Right  = right;
+				Bottom = bottom;
 			}
 		}
 
@@ -47,9 +48,9 @@ namespace UniWebViewMarginsFromRectTransform
 		/// </summary>
 		public static Margins ToMargins( RectTransform rectTransform )
 		{
-			var canvas	= rectTransform.GetComponentInParent<Canvas>();
-			var camera	= canvas.worldCamera;
-			var corners	= new Vector3[ 4 ];
+			var canvas  = rectTransform.GetComponentInParent<Canvas>();
+			var camera  = canvas.worldCamera;
+			var corners = new Vector3[4];
 
 			rectTransform.GetWorldCorners( corners );
 
@@ -58,17 +59,17 @@ namespace UniWebViewMarginsFromRectTransform
 
 			var rect = new Rect();
 
-			rect.x		= screenCorner1.x;
-			rect.width	= screenCorner3.x - rect.x;
-			rect.y		= screenCorner3.y;
-			rect.height	= screenCorner1.y - rect.y;
+			rect.x      = screenCorner1.x;
+			rect.width  = screenCorner3.x - rect.x;
+			rect.y      = screenCorner3.y;
+			rect.height = screenCorner1.y - rect.y;
 
 			var margins = new Margins
 			(
-				left	: ( int )rect.xMin,
-				top		: Screen.height - ( int )rect.yMax,
-				right	: Screen.width  - ( int )rect.xMax,
-				bottom	: ( int )rect.yMin
+				left: ( int ) rect.xMin,
+				top: Screen.height - ( int ) rect.yMax,
+				right: Screen.width - ( int ) rect.xMax,
+				bottom: ( int ) rect.yMin
 			);
 
 			return margins;
