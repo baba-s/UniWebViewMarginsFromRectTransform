@@ -3,9 +3,10 @@
  * https://qiita.com/fukaken5050/items/b0d0183c3c61630d9473
  */
 
+using System;
 using UnityEngine;
 
-namespace UniWebViewMarginsFromRectTransform
+namespace Kogane
 {
 	/// <summary>
 	/// WebView に関する汎用機能を管理するクラス
@@ -18,12 +19,18 @@ namespace UniWebViewMarginsFromRectTransform
 		/// <summary>
 		/// マージンの情報を管理する構造体
 		/// </summary>
+		[Serializable]
 		public struct Margins
 		{
-			public int Left   { get; }
-			public int Top    { get; }
-			public int Right  { get; }
-			public int Bottom { get; }
+			[SerializeField] private int m_left;
+			[SerializeField] private int m_top;
+			[SerializeField] private int m_right;
+			[SerializeField] private int m_bottom;
+
+			public int Left   => m_left;
+			public int Top    => m_top;
+			public int Right  => m_right;
+			public int Bottom => m_bottom;
 
 			public Margins
 			(
@@ -33,10 +40,10 @@ namespace UniWebViewMarginsFromRectTransform
 				int bottom
 			)
 			{
-				Left   = left;
-				Top    = top;
-				Right  = right;
-				Bottom = bottom;
+				m_left   = left;
+				m_top    = top;
+				m_right  = right;
+				m_bottom = bottom;
 			}
 		}
 
